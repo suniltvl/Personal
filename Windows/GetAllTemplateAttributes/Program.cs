@@ -9,6 +9,7 @@ using System.IO;
 
 namespace GetAllTemplateAttributes
 {
+    //Added Comment Venkat
     class Program
     {
         static void Main(string[] args)
