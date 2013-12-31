@@ -1,0 +1,6 @@
+D:\Projects\Github\Personal\Windows\GetAllTemplateAttributes\bin\Debug\GetAllTemplateAttributes.exe.config
+D:\Projects\Github\Personal\Windows\GetAllTemplateAttributes\bin\Debug\GetAllTemplateAttributes.exe
+D:\Projects\Github\Personal\Windows\GetAllTemplateAttributes\bin\Debug\GetAllTemplateAttributes.pdb
+D:\Projects\Github\Personal\Windows\GetAllTemplateAttributes\obj\Debug\GetAllTemplateAttributes.csprojResolveAssemblyReference.cache
+D:\Projects\Github\Personal\Windows\GetAllTemplateAttributes\obj\Debug\GetAllTemplateAttributes.exe
+D:\Projects\Github\Personal\Windows\GetAllTemplateAttributes\obj\Debug\GetAllTemplateAttributes.pdb
