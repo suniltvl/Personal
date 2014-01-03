@@ -1,25 +1,38 @@
 @echo off
-set includeDll=*.dll 
+set includeDll=*.dll
+set includeExe= *.exe
 set includeXml= *.xml 
 set includeXlsx=*.xlsx 
-set excudeFile=chilk* 
+set excludeFile=chilk* 
 set purge=/purge
 
-set sourceRoot=D:\Temp\
-set destinationRoot=D:\Temp\
 
-set sr="%sourceRoot%Folder 2"
-set dr="%destinationRoot%Folder 1"
-set dr1="New Folder"
+set sourceRoot=E:\Inforius-SVN\Inforius.V9\trunk\02SL\WinService\
+set destinationRoot=D:\InforiusV9Tools_Test\
 
 
-call:copyFunction %sr% %dr%
+set srClDataSync="%sourceRoot%DataSync\Client\Inforius.DataSyncService.Client\bin"
+set srClDataSyncServer="%sourceRoot%DataSync\Server\Inforius.DataSyncService.Server\bin"
+set srClDataSyncServerLocal="%sourceRoot%DataSync\Server\Inforius.DataSyncService.ServerLocal\bin"
+
+
+set drClDataSync="%destinationRoot%Client\ServicesForClient\InforiusDataSync"
+set drClDataSyncServer="%destinationRoot%Client\ServicesForClient\InforiusDataSyncServer"
+set drClDataSyncServerLocal="%destinationRoot%Server\ServicesForServer"
+
+
+
+call:copyFunction %srClDataSync% %drClDataSync% %excludeFile%
+call:copyFunction %srClDataSyncServer% %drClDataSyncServer% %excludeFile%
+call:copyFunction %srClDataSyncServerLocal% %drClDataSyncServerLocal% %excludeFile%
+
+
 
 echo.&pause&goto:eof
 
 :copyFunction
 
-robocopy /E "%~1" "%~2" %includeDll% %includeXml% %includeXlsx% /xf %excudeFile% %purge%
+robocopy "%~1" "%~2" %includeDll% %includeExe% /xf %~3 %purge%
 
 goto:eof
 
