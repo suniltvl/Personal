@@ -8,7 +8,6 @@ using Inooga.Inforius.Infrastructure.ExcelExtensions;
 using System.IO;
 using Inooga.Inforius.DataEntity.Model.Dto;
 using System.Dynamic;
-using Inooga.Inforius.Infrastructure.Common;
 
 namespace GetAllTemplateAttributes
 {
@@ -17,14 +16,26 @@ namespace GetAllTemplateAttributes
     {
         static void Main(string[] args)
         {
-            List<KeyValueDto<object, object>> test = new List<KeyValueDto<object, object>>();
-            test.Add(new KeyValueDto<object, object> { Key = "UserName", Value = "Venkat" });
-            test.Add(new KeyValueDto<object, object> { Key = "Password", Value = "Test" });
+            //CreateResxTableData();
 
-            DynamicEntity dynObj = new DynamicEntity(test);
-            
+            //GetTemplateValues();
+
+            var lst = new List<KeyValueDto<string, string>>();
+            lst.Add(new KeyValueDto<string, string> { Key = "UserName", Value = "Venkat" });
+            lst.Add(new KeyValueDto<string, string> { Key = "Password", Value = "Test" });
 
 
+            dynamic dynObj = new DynamicEntity(lst);
+
+            Console.WriteLine("Completed " + dynObj.UserName + "  " + dynObj.Password);
+            Console.Read();
+        }
+
+        /// <summary>
+        /// To Get all template values from the dto classes in the template parser project
+        /// </summary>
+        private static void GetTemplateValues()
+        {
             var assembly = Assembly.Load("Inooga.Inforius.TemplateProcessor");
             var classes = assembly.GetTypes().Where(t => t.Name != "TemplateParser" && t.Name.StartsWith("Template"));
             List<TemplateVariables> exportObject = new List<TemplateVariables>();
@@ -60,9 +71,39 @@ namespace GetAllTemplateAttributes
             ).ToList()
                 .ExportExcelDataToStream("TemplateValues", true);
             File.WriteAllBytes("d:/temp/TemplateValues.xlsx", fileBytes);
+        }
 
-            Console.WriteLine("Completed");
-            Console.Read();
+        /// <summary>
+        /// To Create the insert statements from the resx json file if table data droped missing
+        /// </summary>
+        private static void CreateResxTableData()
+        {
+            List<string> lstQuery = new List<string>();
+            using (StreamReader strRead = new StreamReader(@"D:\Projects\Github\Personal\Windows\GetAllTemplateAttributes\AcResx.json"))
+            {
+                var ar = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(strRead.ReadToEnd());
+                using (StreamWriter strWrite = new StreamWriter(@"D:\Projects\Github\Personal\Windows\GetAllTemplateAttributes\inf_resxkey_value.sql"))
+                {
+
+                    foreach (var item in ar)
+                    {
+                        var arItem = item.Key.ToString().Split('_');
+                        var id = arItem[1];
+                        var type = arItem[0];
+                        var key = arItem[2];
+                        var value = item.Value.Replace(id, "");
+                        var isUsed = item.Value.ToString().Contains(id) ? 0 : 1;
+                        var sql = "insert into inf_resxkey_value values(" + id + ",'" + key + "','" + value + "'," + isUsed + ",'" + type + "',0,''  );";
+                        strWrite.WriteLine(sql);
+
+                        //lstQuery.Add();
+                    }
+
+                }
+            }
+
+
+
         }
     }
 
@@ -83,11 +124,23 @@ namespace GetAllTemplateAttributes
     public class DynamicEntity : DynamicObject
     {
         private IDictionary<string, object> _values;
-        private IDictionary<object, object> _keyvalues;
+        private IDictionary<string, string> _strValues;
 
         public DynamicEntity(IDictionary<string, object> values)
         {
             _values = values;
+        }
+
+        public DynamicEntity(ICollection<KeyValueDto<string, string>> values)
+        {
+            _strValues = new Dictionary<string, string>();
+            values.ToList().ForEach(
+                t =>
+                {
+                    if (t != null)
+                        _strValues.Add(t.Key, t.Value);
+                }
+                );
         }
 
         public DynamicEntity(ICollection<object> values)
@@ -102,32 +155,23 @@ namespace GetAllTemplateAttributes
                 );
         }
 
-        public DynamicEntity(ICollection<KeyValueDto<object, object>> values)
-        {
-            _keyvalues = new Dictionary<object, object>();
-            values.ToList().ForEach(
-                t =>
-                {
-                    if (t != null)
-                        _keyvalues.Add(t.Key, t.Value);
-                }
-                );
-        }
-
         public override bool TryGetMember(GetMemberBinder binder, out object result)
         {
-            if (_values.ContainsKey(binder.Name))
+            if (_values != null && _values.ContainsKey(binder.Name))
             {
                 result = _values[binder.Name];
                 return true;
             }
-            if (_keyvalues.ContainsKey(binder.Name))
+
+            if (_strValues != null && _strValues.ContainsKey(binder.Name))
             {
-                result = _keyvalues[binder.Name];
+                result = _strValues[binder.Name];
                 return true;
             }
             result = null;
             return false;
         }
+
     }
-}
+
+  }

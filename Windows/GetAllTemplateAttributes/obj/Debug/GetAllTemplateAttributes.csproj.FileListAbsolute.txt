@@ -4,3 +4,5 @@ D:\Projects\Github\Personal\Windows\GetAllTemplateAttributes\bin\Debug\GetAllTem
 D:\Projects\Github\Personal\Windows\GetAllTemplateAttributes\obj\Debug\GetAllTemplateAttributes.csprojResolveAssemblyReference.cache
 D:\Projects\Github\Personal\Windows\GetAllTemplateAttributes\obj\Debug\GetAllTemplateAttributes.exe
 D:\Projects\Github\Personal\Windows\GetAllTemplateAttributes\obj\Debug\GetAllTemplateAttributes.pdb
+D:\Projects\Github\Personal\Windows\GetAllTemplateAttributes\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\Github\Personal\Windows\GetAllTemplateAttributes\bin\Debug\Newtonsoft.Json.xml
