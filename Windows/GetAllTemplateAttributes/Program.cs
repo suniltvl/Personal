@@ -21,7 +21,7 @@ namespace GetAllTemplateAttributes
             //GetTemplateValues();
 
             var lst = new List<KeyValueDto<string, string>>();
-            lst.Add(new KeyValueDto<string, string> { Key = "UserName", Value = "Venkat" });
+            lst.Add(new KeyValueDto<string, string> { Key = "Username", Value = "Venkat" });
             lst.Add(new KeyValueDto<string, string> { Key = "Password", Value = "Test" });
 
 

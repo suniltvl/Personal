@@ -57,12 +57,25 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Scripts\Libs\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\Libs\jquery-1.9.1.js" />
+    <Content Include="Scripts\Libs\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\Libs\kendo\2013.2.716\cultures\kendo.culture.en-US.min.js" />
+    <Content Include="Scripts\Libs\kendo\2013.2.716\jquery.min.js" />
+    <Content Include="Scripts\Libs\kendo\2013.2.716\kendo.web.min.js" />
+    <Content Include="Scripts\Libs\math.uuid.js" />
+    <Content Include="Typings\jquery.colorbox.d.ts" />
+    <Content Include="Typings\jquery.d.ts" />
+    <Content Include="Typings\kendo.web.d.ts" />
+    <Content Include="Typings\math.uuid.d.ts" />
+    <Content Include="Typings\require.d.ts" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\Libs\jquery-1.9.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
