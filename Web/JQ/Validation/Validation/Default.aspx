@@ -26,7 +26,7 @@
                         <asp:Label Text="UserName" runat="server" />
                     </td>
                     <td>
-                        <asp:TextBox runat="server" ID="txtUserName" data-validate="true" data-required="true" data-validate-msg="User Name required" />
+                        <asp:TextBox runat="server" ID="txtUserName"  data-validate-msg="User Name required" />
                     </td>
                 </tr>
                 <tr>
