@@ -1,0 +1,47 @@
+﻿<Window x:Class="MongoBackup.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MongoDB Backup tool" Height="339.474" Width="696.053" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="85*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="75"/>
+                <ColumnDefinition Width="75"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Server" Grid.Column="0"></Label>
+            <TextBox Name="txtServerName" Grid.Column="1" Width="200" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Text="5.9.108.110"></TextBox>
+            <Button Name="btnTestConnection" Grid.Column="2" Content="Test" Click="btnTestConnection_Click"></Button>
+            <Button Name="btnConnect" Grid.Column="3" Content="Connect" Click="btnConnect_Click"></Button>
+        </Grid>
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="75"/>
+                <ColumnDefinition Width="75"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label>DataBase</Label>
+            <ComboBox Name="cmbDataBase" Grid.Column="1"></ComboBox>
+            <Button Name="btnCollection" Grid.Column="2" Grid.ColumnSpan="2" Content="Show Collections" Click="btnCollection_Click"
+                    ></Button>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Name="stkCollection" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  >
+            </StackPanel>
+            <TextBox Name="txtJsonContent" Grid.Column="1" TextWrapping="WrapWithOverflow"></TextBox>
+        </Grid>
+    </Grid>
+</Window>

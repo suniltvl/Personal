@@ -1,0 +1,13 @@
+E:\Projects\GitHub\Personal\Windows\MongoBackup\TestApp\bin\Debug\TestApp.exe.config
+E:\Projects\GitHub\Personal\Windows\MongoBackup\TestApp\bin\Debug\TestApp.exe
+E:\Projects\GitHub\Personal\Windows\MongoBackup\TestApp\bin\Debug\TestApp.pdb
+E:\Projects\GitHub\Personal\Windows\MongoBackup\TestApp\bin\Debug\FluentMongo.dll
+E:\Projects\GitHub\Personal\Windows\MongoBackup\TestApp\bin\Debug\MongoDB.Bson.dll
+E:\Projects\GitHub\Personal\Windows\MongoBackup\TestApp\bin\Debug\MongoDB.Driver.dll
+E:\Projects\GitHub\Personal\Windows\MongoBackup\TestApp\bin\Debug\MongoDB.Bson.xml
+E:\Projects\GitHub\Personal\Windows\MongoBackup\TestApp\bin\Debug\MongoDB.Driver.xml
+E:\Projects\GitHub\Personal\Windows\MongoBackup\TestApp\obj\Debug\TestApp.csprojResolveAssemblyReference.cache
+E:\Projects\GitHub\Personal\Windows\MongoBackup\TestApp\obj\Debug\TestApp.exe
+E:\Projects\GitHub\Personal\Windows\MongoBackup\TestApp\obj\Debug\TestApp.pdb
+E:\Projects\GitHub\Personal\Windows\MongoBackup\TestApp\bin\Debug\Newtonsoft.Json.dll
+E:\Projects\GitHub\Personal\Windows\MongoBackup\TestApp\bin\Debug\Newtonsoft.Json.xml

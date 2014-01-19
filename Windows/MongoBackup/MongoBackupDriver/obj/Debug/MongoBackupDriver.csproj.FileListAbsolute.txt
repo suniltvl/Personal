@@ -1,0 +1,12 @@
+E:\Projects\GitHub\Personal\Windows\MongoBackup\MongoBackupDriver\bin\Debug\MongoBackupDriver.dll
+E:\Projects\GitHub\Personal\Windows\MongoBackup\MongoBackupDriver\bin\Debug\MongoBackupDriver.pdb
+E:\Projects\GitHub\Personal\Windows\MongoBackup\MongoBackupDriver\bin\Debug\FluentMongo.dll
+E:\Projects\GitHub\Personal\Windows\MongoBackup\MongoBackupDriver\bin\Debug\MongoDB.Bson.dll
+E:\Projects\GitHub\Personal\Windows\MongoBackup\MongoBackupDriver\bin\Debug\MongoDB.Driver.dll
+E:\Projects\GitHub\Personal\Windows\MongoBackup\MongoBackupDriver\bin\Debug\Newtonsoft.Json.dll
+E:\Projects\GitHub\Personal\Windows\MongoBackup\MongoBackupDriver\bin\Debug\MongoDB.Bson.xml
+E:\Projects\GitHub\Personal\Windows\MongoBackup\MongoBackupDriver\bin\Debug\MongoDB.Driver.xml
+E:\Projects\GitHub\Personal\Windows\MongoBackup\MongoBackupDriver\bin\Debug\Newtonsoft.Json.xml
+E:\Projects\GitHub\Personal\Windows\MongoBackup\MongoBackupDriver\obj\Debug\MongoBackupDriver.csprojResolveAssemblyReference.cache
+E:\Projects\GitHub\Personal\Windows\MongoBackup\MongoBackupDriver\obj\Debug\MongoBackupDriver.dll
+E:\Projects\GitHub\Personal\Windows\MongoBackup\MongoBackupDriver\obj\Debug\MongoBackupDriver.pdb
