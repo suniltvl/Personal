@@ -10,6 +10,7 @@ interface IValidationSettings {
     enableDebug: boolean;
     errorClass: string;
     successClass: string;
+    useDefaultCss: boolean;
 }
 
 class validateSettings implements IValidationSettings {
@@ -20,9 +21,9 @@ class validateSettings implements IValidationSettings {
     showAsTooltip: boolean = false;
     arCtrls: Object[] = [];
     enableDebug: boolean = true;
-    errorClass: string = "";
-    successClass: string = "";
-
+    errorClass: string = "custVldErrorCss";
+    successClass: string = "custVldSuccessCss";
+    useDefaultCss: boolean = true;
 }
 
 function s4() {
@@ -38,7 +39,7 @@ function guid() {
 
 class ConstantsErrorMsg {
     static get Generic() {
-        return "Error occured";
+        return "Error occured addded By Venkat";
     }
     static get Require() {
         return "Required ";
@@ -71,9 +72,9 @@ class ConstantsRegex {
 
 (($) => {
 
-    $.fn.custValidate = (param: validateSettings) => {
+    $.fn.customValidate = (param: validateSettings) => {
         var options = param;
-        var isValid = false;
+        var isValid = true;
         var errMsg = "";
         var _this = eval("this");
         $(this).attr("data-id", options.contentId);
@@ -93,11 +94,9 @@ class ConstantsRegex {
             console.error(msg);
         }
 
-
-        var applyStyle = function (param: Object, isValid: boolean) {
-            var ctrl = $(param);
-            var newErrClass = s4();
-            var newSucClass = s4();
+        var addCustValidationClasses = function () {
+            var newErrClass = "custVldErrorCss";
+            var newSucClass = "custVldSuccessCss";
 
             var style = document.createElement('style');
             style.id = "custValidation"
@@ -108,10 +107,17 @@ class ConstantsRegex {
 
             if ($("#custValidation").length === 0)
                 document.getElementsByTagName('head')[0].appendChild(style);
+        }
 
+        var applyStyle = function (param: Object, isValid: boolean) {
 
-            var errClass = options.errorClass !== "" ? options.errorClass : newErrClass;
-            var sucessClass = options.successClass !== "" ? options.successClass : newSucClass;
+            var ctrl = $(param);
+
+            if (options.useDefaultCss)
+                addCustValidationClasses();
+
+            var errClass = options.errorClass;// !== "" ? options.errorClass : newErrClass;
+            var sucessClass = options.successClass;// !== "" ? options.successClass : newSucClass;
 
             if (isValid) {
                 ctrl.addClass(sucessClass);
@@ -123,28 +129,36 @@ class ConstantsRegex {
             }
         }
 
-        var showErrorMessage = function (param: Object) {
+        var showErrorMessage = function (param: Object, errMsg: string) {
             var msg: string;
             var ctrl = $(param);
-            msg = ctrl.data("validateMsg");
+            msg = errMsg;// ctrl.data("validateMsg");
+            var errMsgObj = $("span[data-vld-id=" + ctrl.data("vldId") + "]");
 
-            if (ctrl.data("isValid") == undefined || !ctrl.data("isValid")) {
-                if (options.enableDebug && msg != "") {
+            //Creating Validation Div
+            if ($("#divValidationSummary").length === 0) {
+                var divVldContent = document.createElement("div");
+                divVldContent.id = "divValidationSummary";
+                $(options.content).parent().append(divVldContent);
+            }
+
+            //Creating Error message Span
+            if (errMsgObj.length === 0) {
+                var msgSpan = document.createElement("span");
+                $(msgSpan).attr("data-vld-id", ctrl.data("vldId"));
+                $("#divValidationSummary").append(msgSpan)
+                errMsgObj = $(msgSpan);
+            }
+
+            if (ctrl.data("isValid") == undefined || !ctrl.data("isValid") && msg != "") {
+                if (options.enableDebug) {
                     logError(msg);
-                    //alert(msg);
                 }
-
-                if ($("#divValidationSummary").length === 0) {
-                    $(options.content).parent().append("<div id=\"divValidationSummary\"></div>");
-                    $("#divValidationSummary").html(msg);
-                }
-                else {
-                    $("#divValidationSummary").append("<br />" + msg);
-                }
-
+                errMsgObj.html("<br />" + msg);
                 applyStyle(ctrl, false);
             }
             else {
+                errMsgObj.remove();
                 applyStyle(ctrl, true);
             }
 
@@ -154,7 +168,7 @@ class ConstantsRegex {
 
             var ctrl = $(param);
             ctrl.data("is-valid", isValid);
-            if (options.showDefaultMessage) {
+            if (options.showDefaultMessage && !isValid) {
 
                 if (ctrl.data().validateMsg !== undefined) {
                     ctrl.data().validateMsg = vldMsg.trim() === "" ? ConstantsErrorMsg.Generic : vldMsg;
@@ -167,9 +181,10 @@ class ConstantsRegex {
         }
 
         var validateControl = function (param: Object) {
-
             var ctrl = $(param);
             var errMsg = "";
+            isValid = true;
+            debugger;
             if (ctrl.data().required && ctrl.val().trim() === "") {
                 showDebugData("Validating Required");
                 isValid = isValid && false;
@@ -226,13 +241,19 @@ class ConstantsRegex {
                     isValid = isValid && false;
                     errMsg = $(ctrl).data().regexMsg;
                 }
+                //This is for Date
+                else if (($(ctrl).data().date) != null && (isNaN(Date.parse(ctrl.val())))) {
+                    isValid = isValid && false;
+                    errMsg = $(ctrl).data().dateMsg;
+                }
             }
-            else {
-                setControlStatus(ctrl, true);
-            }
-
-            setControlStatus(ctrl, false, errMsg);
-            showErrorMessage(ctrl);
+            //else {
+            //    
+            //    setControlStatus(ctrl, true);
+            //}
+            //
+            setControlStatus(ctrl, isValid, errMsg);
+            showErrorMessage(ctrl, errMsg);
         }
 
         var assignValidate = function () {
@@ -256,8 +277,12 @@ class ConstantsRegex {
 
                 if ($(ctrl).attr('data-vld-id') === undefined) {
                     $(ctrl).attr('data-vld-id', uniqueId);
-                    //setControlStatus(ctrl, true);
                 }
+
+                if ($(ctrl).attr("data-required") == undefined) {
+                    $(ctrl).attr("data-required", true);
+                }
+
                 validateControl($(ctrl));
             }
         }
