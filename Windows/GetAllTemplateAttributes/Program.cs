@@ -8,6 +8,7 @@ using Inooga.Inforius.Infrastructure.ExcelExtensions;
 using System.IO;
 using Inooga.Inforius.DataEntity.Model.Dto;
 using System.Dynamic;
+using HtmlAgilityPack;
 
 namespace GetAllTemplateAttributes
 {
@@ -20,6 +21,42 @@ namespace GetAllTemplateAttributes
 
             //GetTemplateValues();
 
+            //CreateDynamicEntity();
+
+            ReadHtmlDocument();
+
+
+            Console.Read();
+        }
+
+        private static void ReadHtmlDocument()
+        {
+            var str = "";
+            using (StreamReader readHtml = new StreamReader(@"D:\Temp\Kendo\GridInline\test_Zvab.html"))
+            {
+                str = readHtml.ReadToEnd();
+            }
+
+            HtmlDocument doc = new HtmlDocument();
+            doc.LoadHtml(str);
+            List<string> strOrders = new List<string>();
+            foreach (HtmlNode link in doc.DocumentNode.SelectNodes("//table[@class='price']//a[@href]"))
+            {
+                var linkText = 0;
+                if (int.TryParse(link.InnerText, out linkText))
+                {
+                    strOrders.Add(linkText.ToString());
+                }
+
+            }
+            Console.WriteLine(string.Join(",", strOrders));
+
+
+
+        }
+
+        private static void CreateDynamicEntity()
+        {
             var lst = new List<KeyValueDto<string, string>>();
             lst.Add(new KeyValueDto<string, string> { Key = "Username", Value = "Venkat" });
             lst.Add(new KeyValueDto<string, string> { Key = "Password", Value = "Test" });
@@ -28,7 +65,6 @@ namespace GetAllTemplateAttributes
             dynamic dynObj = new DynamicEntity(lst);
 
             Console.WriteLine("Completed " + dynObj.UserName + "  " + dynObj.Password);
-            Console.Read();
         }
 
         /// <summary>
@@ -174,4 +210,4 @@ namespace GetAllTemplateAttributes
 
     }
 
-  }
+}

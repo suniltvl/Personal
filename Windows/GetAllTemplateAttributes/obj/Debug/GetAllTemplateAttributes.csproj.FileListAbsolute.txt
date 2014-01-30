@@ -6,3 +6,6 @@ D:\Projects\Github\Personal\Windows\GetAllTemplateAttributes\obj\Debug\GetAllTem
 D:\Projects\Github\Personal\Windows\GetAllTemplateAttributes\obj\Debug\GetAllTemplateAttributes.pdb
 D:\Projects\Github\Personal\Windows\GetAllTemplateAttributes\bin\Debug\Newtonsoft.Json.dll
 D:\Projects\Github\Personal\Windows\GetAllTemplateAttributes\bin\Debug\Newtonsoft.Json.xml
+D:\Projects\Github\Personal\Windows\GetAllTemplateAttributes\bin\Debug\HtmlAgilityPack.dll
+D:\Projects\Github\Personal\Windows\GetAllTemplateAttributes\bin\Debug\HtmlAgilityPack.pdb
+D:\Projects\Github\Personal\Windows\GetAllTemplateAttributes\bin\Debug\HtmlAgilityPack.xml
