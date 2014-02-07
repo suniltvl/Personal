@@ -1,0 +1,12 @@
+D:\Projects\Windows\FtpAccess\bin\Debug\FtpAccess.exe.config
+D:\Projects\Windows\FtpAccess\bin\Debug\FtpAccess.exe
+D:\Projects\Windows\FtpAccess\bin\Debug\FtpAccess.pdb
+D:\Projects\Windows\FtpAccess\obj\Debug\FtpAccess.exe
+D:\Projects\Windows\FtpAccess\obj\Debug\FtpAccess.pdb
+D:\Projects\Windows\FtpAccess\obj\Debug\FtpAccess.csprojResolveAssemblyReference.cache
+D:\Projects\Github\Personal\Windows\FtpAccess\bin\Debug\FtpAccess.exe.config
+D:\Projects\Github\Personal\Windows\FtpAccess\obj\Debug\FtpAccess.exe
+D:\Projects\Github\Personal\Windows\FtpAccess\obj\Debug\FtpAccess.pdb
+D:\Projects\Github\Personal\Windows\FtpAccess\bin\Debug\FtpAccess.exe
+D:\Projects\Github\Personal\Windows\FtpAccess\bin\Debug\FtpAccess.pdb
+D:\Projects\Github\Personal\Windows\FtpAccess\obj\Debug\FtpAccess.csprojResolveAssemblyReference.cache
