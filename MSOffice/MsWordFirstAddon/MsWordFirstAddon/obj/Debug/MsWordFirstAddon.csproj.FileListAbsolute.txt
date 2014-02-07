@@ -1,0 +1,11 @@
+D:\Projects\Github\Personal\MSOffice\MsWordFirstAddon\MsWordFirstAddon\bin\Debug\MsWordFirstAddon.dll
+D:\Projects\Github\Personal\MSOffice\MsWordFirstAddon\MsWordFirstAddon\bin\Debug\MsWordFirstAddon.pdb
+D:\Projects\Github\Personal\MSOffice\MsWordFirstAddon\MsWordFirstAddon\bin\Debug\MsWordFirstAddon.dll.manifest
+D:\Projects\Github\Personal\MSOffice\MsWordFirstAddon\MsWordFirstAddon\bin\Debug\MsWordFirstAddon.vsto
+D:\Projects\Github\Personal\MSOffice\MsWordFirstAddon\MsWordFirstAddon\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+D:\Projects\Github\Personal\MSOffice\MsWordFirstAddon\MsWordFirstAddon\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.xml
+D:\Projects\Github\Personal\MSOffice\MsWordFirstAddon\MsWordFirstAddon\obj\Debug\MsWordFirstAddon.CustRibbon.resources
+D:\Projects\Github\Personal\MSOffice\MsWordFirstAddon\MsWordFirstAddon\obj\Debug\MsWordFirstAddon.Properties.Resources.resources
+D:\Projects\Github\Personal\MSOffice\MsWordFirstAddon\MsWordFirstAddon\obj\Debug\MsWordFirstAddon.csproj.GenerateResource.Cache
+D:\Projects\Github\Personal\MSOffice\MsWordFirstAddon\MsWordFirstAddon\obj\Debug\MsWordFirstAddon.dll
+D:\Projects\Github\Personal\MSOffice\MsWordFirstAddon\MsWordFirstAddon\obj\Debug\MsWordFirstAddon.pdb

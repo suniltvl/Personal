@@ -1,0 +1,5 @@
+D:\Projects\Github\Personal\MSOffice\MsWordFirstAddon\FileUploadTest\bin\Debug\FileUploadTest.exe.config
+D:\Projects\Github\Personal\MSOffice\MsWordFirstAddon\FileUploadTest\bin\Debug\FileUploadTest.exe
+D:\Projects\Github\Personal\MSOffice\MsWordFirstAddon\FileUploadTest\bin\Debug\FileUploadTest.pdb
+D:\Projects\Github\Personal\MSOffice\MsWordFirstAddon\FileUploadTest\obj\Debug\FileUploadTest.exe
+D:\Projects\Github\Personal\MSOffice\MsWordFirstAddon\FileUploadTest\obj\Debug\FileUploadTest.pdb
